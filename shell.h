@@ -114,7 +114,10 @@ typedef struct builtin
 
 /***** Function prototypes *****/
 
-/***** shloop.c *****/
+/***** Shell.c *****/
+int _putchar(char c);
+
+/***** shloop.c *****
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
 void find_cmd(info_t *);
