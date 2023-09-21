@@ -21,6 +21,7 @@ int _putchar(char c)
 int main(void)
 {
 	char input[MAX_INPUT_LENGTH];
+	size_t len;
 
 	while (1)
 	{
@@ -31,7 +32,7 @@ int main(void)
 			break;
 		}
 
-		size_t len = strlen(input);
+		len = strlen(input);
 
 		if (len > 0 && input[len - 1] == '\n')
 		{
