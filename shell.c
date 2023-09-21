@@ -24,7 +24,8 @@ int main(void)
 
 	while (1)
 	{
-		_putchar('($)');
+		_putchar('$');
+		_putchar(' ');
 		if (fgets(input, sizeof(input), stdin) == NULL)
 		{
 			break;
