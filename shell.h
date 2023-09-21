@@ -16,6 +16,7 @@
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
+#define MAX_INPUT_LENGTH 1024
 
 /***** Constants command chaining *****/
 #define CMD_NORM    0
