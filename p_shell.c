@@ -1,8 +1,5 @@
 #include "p_shell.h"
 
-char *name;
-int hist_count;
-
 /**
  * main - entry point of the UNIX shell
  *
@@ -17,6 +14,8 @@ int hist_count;
 
 int main(int argc, char *argv[])
 {
+	char *name;
+	int hist_count;
 	int exitStat = 0, exi;
 	int *exec = &exi;
 	char *prompt = "cimba$ ", *newLine = "";
