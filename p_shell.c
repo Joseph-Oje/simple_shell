@@ -33,13 +33,15 @@ int main(int argc, char *argv[])
 		exitStat = file_commandproc(argv[1], exec);
 		env_free();
 		alias_freelist(aliaz);
-		return (*exec); }
+		return (*exec);
+	}
 	if (!isatty(STDIN_FILENO))/** check non_int mode **/
 	{
 		while (exitStat != FILE_END && exitStat != EXIT)
 			exitStat = args_handle(exec);
 		env_free(), alias_freelist(aliaz);
-		return (*exec); }
+		return (*exec);
+	}
 	while (1)/** interactive **/
 	{
 		write(STDOUT_FILENO, prompt, 10);
