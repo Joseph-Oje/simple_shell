@@ -17,7 +17,7 @@ int hist_count;
 int main(int argc, char *argv[])
 {
 	int exitStat = 0, exit;
-	int *exec = &exi;
+	int *exec = &exit;
 	char *prompt = "cimba$ ", *newLine = "";
 
 	name = argv[0];
