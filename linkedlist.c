@@ -1,18 +1,13 @@
 #include "p_shell.h"
 
-char *name;
-int hist_count;
-
 /**
- * list_free - free linkedlist
+ * list_free - Free linked list
  *
  * Description:
- * @top: the top of link_t list
+ * @top: The top of the link_t list
  *
  * Return: void
- *
  */
-
 void list_free(link_t *top)
 {
 	link_t *nex;
@@ -27,57 +22,54 @@ void list_free(link_t *top)
 }
 
 /**
- * aliasend_add - Adds node to end of alias_t linked list
+ * aliasend_add - Adds a node to the end of alias_t linked list
  *
  * Description:
- * @top: pointer to head of the link_t list.
- * @name: name of new alias to add
- * @value: value of new alias to add
+ * @top: Pointer to the head of the alias_t list.
+ * @name: Name of the new alias to add
+ * @value: Value of the new alias to add
  *
- * Return: error (NULL), 0 pointer to new node.
+ * Return: Pointer to the new node or NULL on error
  */
-
 alias_t *aliasend_add(alias_t **top, char *name, char *value)
 {
-	alias_t *newCore = malloc(sizeof(alias_t));
+	alias_t *newAlias = malloc(sizeof(alias_t));
 	alias_t *last;
 
-	if (!newCore)
+	if (!newAlias)
 		return (NULL);
 
-	newCore->nex = NULL;
-	newCore->name = malloc(sizeof(char) * (p_strlent(name) + 1));
-	if (!newCore->name)
+	newAlias->nex = NULL;
+	newAlias->name = malloc(sizeof(char) * (p_strlent(name) + 1));
+	if (!newAlias->name)
 	{
-		free(newCore);
+		free(newAlias);
 		return (NULL);
 	}
-	newCore->value = value;
-	p_strcpy(newCore->name, name);
+	newAlias->value = value;
+	p_strcpy(newAlias->name, name);
 
 	if (*top)
 	{
 		last = *top;
 		while (last->nex != NULL)
 			last = last->nex;
-		last->nex = newCore;
+		last->nex = newAlias;
 	}
 	else
-		*top = newCore;
+		*top = newAlias;
 
-	return (newCore);
+	return (newAlias);
 }
 
 /**
  * alias_freelist - Frees alias_t linked list
  *
  * Description:
- * @top: THe top of the alias_t list
+ * @top: The top of the alias_t list
  *
  * Return: void
- *
  */
-
 void alias_freelist(alias_t *top)
 {
 	alias_t *nex;
@@ -93,15 +85,14 @@ void alias_freelist(alias_t *top)
 }
 
 /**
- * core_add - Adds node to end of a link_t linked list.
+ * core_add - Adds a node to the end of a link_t linked list.
  *
  * Description:
- * @top: pointer to top of the link_t list
- * @dir: directory path for the new core
+ * @top: Pointer to the top of the link_t list
+ * @dir: Directory path for the new core
  *
- * Return: If an error (NULL) , else pointer to the new core
+ * Return: Pointer to the new core or NULL on error
  */
-
 link_t *core_add(link_t **top, char *dir)
 {
 	link_t *newCore = malloc(sizeof(link_t));
@@ -125,3 +116,4 @@ link_t *core_add(link_t **top, char *dir)
 
 	return (newCore);
 }
+
