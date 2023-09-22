@@ -1,8 +1,5 @@
 #include "p_shell.h"
 
-char *name;
-int hist_count;
-
 /**
  * main - entry point of the UNIX shell
  *
@@ -14,13 +11,13 @@ int hist_count;
  * Return: value of last command
  *
  */
-
-
 int main(int argc, char *argv[])
 {
 	int exitStat = 0, exi;
 	int *exec = &exi;
 	char *prompt = "cimba$ ", *newLine = "";
+	char *name;
+	int hist_count;
 
 	name = argv[0];
 	hist_count = 1;
@@ -33,10 +30,8 @@ int main(int argc, char *argv[])
 	if (argc != 1)/** check file cmd **/
 	{
 		exitStat = file_commandproc(argv[1], exec);
-		env_free();
-		alias_freelist(aliaz);
-		return (*exec);
-	}
+		env_free(), alias_freelist(aliaz);
+		return (*exec); }
 	if (!isatty(STDIN_FILENO))/** check non_int mode **/
 	{
 		while (exitStat != FILE_END && exitStat != EXIT)
@@ -59,7 +54,6 @@ int main(int argc, char *argv[])
 	env_free(), alias_freelist(aliaz);
 	return (*exec);
 }
-
 /**
  * sigHandler - handles the SIGNINT signal printing a new prompt
  *
