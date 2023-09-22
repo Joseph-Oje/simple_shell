@@ -2,7 +2,6 @@
 
 char *name;
 int hist_count;
-
 /**
  * main - entry point of the UNIX shell
  *
@@ -14,7 +13,6 @@ int hist_count;
  * Return: value of last command
  *
  */
-
 
 int main(int argc, char *argv[])
 {
