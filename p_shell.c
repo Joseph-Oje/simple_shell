@@ -1,5 +1,7 @@
 #include "p_shell.h"
 
+char *name;
+int hist_count;
 
 /**
  * main - entry point of the UNIX shell
@@ -12,6 +14,7 @@
  * Return: value of last command
  *
  */
+
 
 int main(int argc, char *argv[])
 {
